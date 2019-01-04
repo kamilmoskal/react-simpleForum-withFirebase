@@ -1,7 +1,7 @@
 {
   "main.css": "/react-simpleForum-withFirebase/static/css/main.e9afb3bc.chunk.css",
-  "main.js": "/react-simpleForum-withFirebase/static/js/main.b60687d6.chunk.js",
-  "main.js.map": "/react-simpleForum-withFirebase/static/js/main.b60687d6.chunk.js.map",
+  "main.js": "/react-simpleForum-withFirebase/static/js/main.efc78667.chunk.js",
+  "main.js.map": "/react-simpleForum-withFirebase/static/js/main.efc78667.chunk.js.map",
   "static/css/1.eaf74bf7.chunk.css": "/react-simpleForum-withFirebase/static/css/1.eaf74bf7.chunk.css",
   "static/js/1.5469d283.chunk.js": "/react-simpleForum-withFirebase/static/js/1.5469d283.chunk.js",
   "static/js/1.5469d283.chunk.js.map": "/react-simpleForum-withFirebase/static/js/1.5469d283.chunk.js.map",
@@ -10,6 +10,6 @@
   "static/css/1.eaf74bf7.chunk.css.map": "/react-simpleForum-withFirebase/static/css/1.eaf74bf7.chunk.css.map",
   "static/css/main.e9afb3bc.chunk.css.map": "/react-simpleForum-withFirebase/static/css/main.e9afb3bc.chunk.css.map",
   "index.html": "/react-simpleForum-withFirebase/index.html",
-  "precache-manifest.a46d9cef8fda4a36a2763b1bd2bdca72.js": "/react-simpleForum-withFirebase/precache-manifest.a46d9cef8fda4a36a2763b1bd2bdca72.js",
+  "precache-manifest.7bfaacbce53aac9da007d6495e9fd271.js": "/react-simpleForum-withFirebase/precache-manifest.7bfaacbce53aac9da007d6495e9fd271.js",
   "service-worker.js": "/react-simpleForum-withFirebase/service-worker.js"
 }
