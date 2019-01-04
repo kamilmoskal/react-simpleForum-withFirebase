@@ -31,7 +31,9 @@ export const createComment = (comment) => {
                 idTopic: comment.topicId,
                 name: profile.name,
                 nameId: authorId,
-                createdAt: new Date()
+                createdAt: new Date(),
+                editDate: '',
+                edited: false,
             })
 
         }).then(() => {
