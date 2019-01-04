@@ -56,9 +56,57 @@ export const deleteComment = (comment) => {
             comments: newComments
 
         }).then(() => {
-            dispatch({ type: 'DELETE_COMMENT', topic: comment})
+            dispatch({ type: 'DELETE_COMMENT' })
         }).catch((error) => {
             dispatch({ type: 'DELETE_COMMENT_ERROR', error})
+        })  
+
+    }
+}
+
+export const editComment = (comment) => {
+    return (dispatch, getState, { getFirebase, getFirestore }) => {
+        const firestore = getFirestore();
+
+        /////Firestore has problem with updating arrays in specific index so i doing this
+
+        /////Grab through reference all comments in firestore
+        let actualComments = getState().firestore.data.topics[comment.topicId].comments;
+
+        ////make container for array
+        let updatedComments = [];
+
+        //// copy array from reference to empty updatedComments array
+        actualComments.forEach(comment => {
+            updatedComments.push({
+                content: comment.content,
+                createdAt: comment.createdAt,
+                editDate: comment.editDate,
+                edited: comment.edited,
+                id: comment.id,
+                idTopic: comment.idTopic,
+                name: comment.name,
+                nameId: comment.nameId
+            })
+        })
+
+        //// grab index which i want to update
+        let numberArray = actualComments.findIndex(e => {return e.id === comment.commentId});
+        
+        //// update in specific index array
+        updatedComments[numberArray].content = comment.editContent;
+        updatedComments[numberArray].editDate = new Date();
+        updatedComments[numberArray].edited = true; 
+        
+        //// replace updated array in firestore
+        firestore.collection('topics').doc(comment.topicId).update({
+           
+            comments: updatedComments
+            
+        }).then(() => {
+            dispatch({ type: 'EDIT_COMMENT' })
+        }).catch((error) => {
+            dispatch({ type: 'EDIT_COMMENT_ERROR', error})
         })  
 
     }

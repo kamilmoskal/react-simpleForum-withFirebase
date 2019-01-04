@@ -9,9 +9,7 @@ import moment from 'moment'
 
 class TopicDetails extends Component {
     state = {
-        content: "",
-        topicId: "",
-        commentId: "",
+        content: "", topicId: "", commentId: "",
     }
     componentDidMount(){
         this.props.resetFormError();
@@ -85,12 +83,10 @@ class TopicDetails extends Component {
                     })}
                 </div>
 
-                {addCommentVisibility}
-                
+                {addCommentVisibility}   
+
             </div>
-            
-        
-        );
+        )
       } else {
           return(
               <div className="container center">

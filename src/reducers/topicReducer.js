@@ -21,6 +21,12 @@ const topicReducer = (state = initState, action) => {
     } else if (action.type === 'DELETE_COMMENT_ERROR') {
         console.log('comment delete error', action.error);
         return state;
+    } else if (action.type === 'EDIT_COMMENT') {
+        console.log('comment edited');
+        return state;
+    } else if (action.type === 'EDIT_COMMENT_ERROR') {
+        console.log('comment edit error', action.error);
+        return state;
     } else if (action.type === 'FORM_NULL_TOPIC') {
         return {
             ...state,

@@ -1,20 +1,17 @@
 body {
   margin: 0;
   padding: 0;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
-    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
   font-size:16px;
   font-family: 'Roboto', sans-serif;
   font-weight: 200;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
-    monospace;
+p{
+  margin:0;
+  padding:0;
+  word-wrap: break-word;
 }
+
 form h5{
   padding:14px 0;
 }
@@ -29,10 +26,10 @@ li.collection-item{
 }
 .card-title{
   padding:10px;
-  /* font-family: Avenir; */
   margin-bottom:-10px;
 }
 
+/*  topic title and numberofcomments in topicslist  */
 p.text-title{
   white-space: nowrap;
   overflow: hidden !important;
@@ -46,19 +43,14 @@ span.secondary-content{
  right:0px;
  top:0px;
 }
-p{
-  margin:0;
-  padding:0;
-  word-wrap: break-word;
-}
+
+/* card action inside topic */
 .card-action div{
   display: inline-block;
   margin-left:10px;
 }
-button.btn{
-  margin-top:-15px;
-  margin-bottom:-10px;
-}
+
+/*  name/date uder each comment  */
 div.collection-item div{
   margin-top:10px;
   margin-right:10px;
@@ -67,15 +59,22 @@ div.collection-item div{
 div.collection-item p {
   margin-top:6px;
 }
+
+/* set smaller input field in add comment */
 div.input-field{
   margin-top:-4px;
 }
+
+/* close to each other each topic in topiclist homepage */
 div.topic-list div.card {
   margin-top:-14px;
 }
+
 div.card div.card-content p{
   margin-top:10px;
 }
+
+/* ICON: DELETE */
 .material-icons{
   font-size:24px;
 }
@@ -86,11 +85,33 @@ div.card div.card-content p{
 .delete-comment{
   float:right;
 }
+
+/* LOGO */
 .brand-logo span{
   font-size:20px;
   font-weight: 900;
   text-transform: uppercase;
 }
+
+/* color of li on small screen device */
 ul.sidenav div li .red{
   color: white;
+}
+
+/*   EDIT COMMENTS DIVS */
+div.input-field.addcomment{
+  display: block;
+  width:80%;
+}
+
+div.input-field.addcomment textarea.materialize-textarea{
+  margin-top:6px;
+  margin-bottom:20px;
+}
+div.input-field.addcomment label{
+  margin-top:6px;
+}
+div.collection-item span {
+  font-size:12px;
+  color: rgb(56, 56, 56);
 }
