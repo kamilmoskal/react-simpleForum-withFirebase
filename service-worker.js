@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/3.6.3/workbox-sw.js");
 
 importScripts(
-  "/react-simpleForum-withFirebase/precache-manifest.68231b68784621f7a0e7e7541c6b374c.js"
+  "/react-simpleForum-withFirebase/precache-manifest.a46d9cef8fda4a36a2763b1bd2bdca72.js"
 );
 
 workbox.clientsClaim();
