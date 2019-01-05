@@ -34,6 +34,7 @@ export const createComment = (comment) => {
                 createdAt: new Date(),
                 editDate: '',
                 edited: false,
+                likeStatus: 0
             })
 
         }).then(() => {
@@ -82,13 +83,14 @@ export const editComment = (comment) => {
         actualComments.forEach(comment => {
             updatedComments.push({
                 content: comment.content,
-                createdAt: comment.createdAt,
-                editDate: comment.editDate,
-                edited: comment.edited,
                 id: comment.id,
                 idTopic: comment.idTopic,
                 name: comment.name,
-                nameId: comment.nameId
+                nameId: comment.nameId,
+                createdAt: comment.createdAt,
+                editDate: comment.editDate,
+                edited: comment.edited,
+                likeStatus: comment.likeStatus
             })
         })
 
@@ -109,6 +111,47 @@ export const editComment = (comment) => {
             dispatch({ type: 'EDIT_COMMENT' })
         }).catch((error) => {
             dispatch({ type: 'EDIT_COMMENT_ERROR', error})
+        })  
+
+    }
+}
+
+
+export const likeCommentStatus = (comment) => {
+    return (dispatch, getState, { getFirebase, getFirestore }) => {
+        const firestore = getFirestore();
+        let actualComments = getState().firestore.data.topics[comment.topicId].comments;
+        let updatedComments = [];
+
+        actualComments.forEach(comment => {
+            updatedComments.push({
+                content: comment.content,
+                id: comment.id,
+                idTopic: comment.idTopic,
+                name: comment.name,
+                nameId: comment.nameId,
+                createdAt: comment.createdAt,
+                editDate: comment.editDate,
+                edited: comment.edited,
+                likeStatus: comment.likeStatus
+            })
+        })
+
+        let numberArray = actualComments.findIndex(e => {return e.id === comment.commentId});
+        if (comment.like === true){
+            updatedComments[numberArray].likeStatus += 1;
+        } else {
+            updatedComments[numberArray].likeStatus -= 1;
+        }
+
+        firestore.collection('topics').doc(comment.topicId).update({
+           
+            comments: updatedComments
+            
+        }).then(() => {
+            dispatch({ type: 'ADD_LIKE_COMMENT' })
+        }).catch((error) => {
+            dispatch({ type: 'ADD_LIKE_COMMENT_ERROR', error})
         })  
 
     }

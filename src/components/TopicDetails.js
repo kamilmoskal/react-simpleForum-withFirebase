@@ -5,6 +5,7 @@ import { firestoreConnect } from 'react-redux-firebase'  // do polaczenia compon
 import { compose } from 'redux' /// zeby sie polaczyc trzeba dodac drugi higher order component przez compoase
 import { createComment } from '../actions/topicActions'
 import moment from 'moment'
+import M from "materialize-css/dist/js/materialize.min.js";
 
 
 class TopicDetails extends Component {
@@ -19,7 +20,7 @@ class TopicDetails extends Component {
             [e.target.id]: e.target.value
         })
     }
-    handleSubmit = (e) => {
+    createComment = (e) => {
         e.preventDefault();
         if (this.state.content !== ""){
             let commentId = Math.random()*10;
@@ -32,6 +33,7 @@ class TopicDetails extends Component {
                     content: ""
                 })
                 this.props.resetFormError();
+                
             })
         } else {
             this.props.formNullComment();
@@ -43,12 +45,12 @@ class TopicDetails extends Component {
     const addCommentVisibility = auth.uid ? ( 
         <div className="card col s12 m12 l8 offset-l2">
                     <div className="card-content">
-                        <form onSubmit={this.handleSubmit}>
+                        <form onSubmit={this.createComment}>
                             <div className="input-field">
                             <textarea id="content" className="materialize-textarea" onChange={this.handleChange} value={this.state.content}></textarea>
                             <label htmlFor="textarea1">Comment</label>
                             </div>
-                            <button className="btn red darken-4 waves-effect waves-light" onClick={this.handleSubmit}>Add comment</button>
+                            <button className="btn red darken-4 waves-effect waves-light" onClick={this.createComment}>Add comment</button>
 
                             <div className="center">
                             { formError ? <p className="red-text">{formError}</p> : null }
@@ -60,7 +62,7 @@ class TopicDetails extends Component {
      ) : ( <div className="card center z-depth-0 col s12 m12 l8 offset-l2 grey-text">
             log in to add comments
          </div> )
-
+    //// if topic exist return topic with all comments
       if (topic) {
         return (
             <div className="container section row">

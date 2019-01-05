@@ -114,29 +114,23 @@ div.input-field.addcomment label{
 }
 div.collection-item span#edit-text {
   font-size:12px;
-  color: rgb(163, 163, 163);
-  float:right;
+  color: rgb(189, 0, 0);
+  display: block;
 }
 /* Likes / unlikes */
 
 .add-like-comment, .add-unlike-comment{
   float:right;
 }
-
-.like-unlike-state{
-  margin-bottom:-5px;
+/* Toast */
+#toast-container .toast{
+  background-color: rgb(189, 0, 0);
 }
 
 
-
-div.collection.col.s12.m12.l8.offset-l2 .collection-item{
-  
-}
-
-div.collection.col.s12.m12.l8.offset-l2 .collection-item p{
-
-}
-
-div.collection.col.s12.m12.l8.offset-l2 .collection-item div.date{
-
+@media (min-width: 400px) and (max-width:506px){
+  .delete-comment, .edit-comment,
+  .add-like-comment, .add-unlike-comment{
+    float:none;
+  }
 }
