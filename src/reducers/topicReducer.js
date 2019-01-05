@@ -1,5 +1,5 @@
 const initState = {
-    formError: null
+    formError: null,
 }
 
 const topicReducer = (state = initState, action) => {

@@ -15,12 +15,17 @@ class EditComment extends Component {
     }
     handleClick = (e) => {
         e.preventDefault();
-        this.setState({
-            topicId: this.props.comment.idTopic,
-            commentId: this.props.comment.id
-        }, function(){
-            this.props.editComment(this.state)
-        })
+        if (this.state.editContent.length > 0){
+            this.setState({
+                topicId: this.props.comment.idTopic,
+                commentId: this.props.comment.id
+            }, function(){
+                this.props.editComment(this.state);
+                this.props.resetStateEdit();
+            })
+        } else {
+            
+        }
     }
   render() {
     const show = this.props.showEdit ? (
