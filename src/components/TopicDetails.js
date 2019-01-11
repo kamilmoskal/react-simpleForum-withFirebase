@@ -5,7 +5,6 @@ import { firestoreConnect } from 'react-redux-firebase'  // do polaczenia compon
 import { compose } from 'redux' /// zeby sie polaczyc trzeba dodac drugi higher order component przez compoase
 import { createComment } from '../actions/topicActions'
 import moment from 'moment'
-import M from "materialize-css/dist/js/materialize.min.js";
 
 
 class TopicDetails extends Component {
